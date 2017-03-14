@@ -52,14 +52,6 @@ public class FilteringApples {
         return result;
     }
 
-    private static boolean isGreenApple(Apple apple) {
-        return "green".equals(apple.getColor());
-    }
-
-    private static boolean isHeavyApple(Apple apple) {
-        return apple.getWeight() > 150;
-    }
-
     private static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> p){
         List<Apple> result = new ArrayList<>();
         for(Apple apple : inventory){
@@ -68,5 +60,13 @@ public class FilteringApples {
             }
         }
         return result;
+    }
+
+    private static boolean isGreenApple(Apple apple) {
+        return "green".equals(apple.getColor());
+    }
+
+    private static boolean isHeavyApple(Apple apple) {
+        return apple.getWeight() > 150;
     }
 }

@@ -30,8 +30,8 @@ import java.util.stream.Collectors;
 public class StreamVsCollection {
 
 	public static void main(String[] args) {
-		getLowCaloricDishesNames(Dish.menu);
-		getLowCaloricDishesNamesFunctional(Dish.menu);
+		//getLowCaloricDishesNames(Dish.menu).forEach(System.out::println);
+		getLowCaloricDishesNamesFunctional(Dish.menu).forEach(System.out::println);
 	}
 
 	private static List<String> getLowCaloricDishesNames(List<Dish> dishes) {
@@ -41,12 +41,12 @@ public class StreamVsCollection {
 				lowCaloricDishes.add(d);
 			}
 		}
-		List<String> lowCaloricDishesName = new ArrayList<>();
 		Collections.sort(lowCaloricDishes, new Comparator<Dish>() {
 			public int compare(Dish d1, Dish d2) {
 				return Integer.compare(d1.getCalories(), d2.getCalories());
 			}
 		});
+		List<String> lowCaloricDishesName = new ArrayList<>();
 		for (Dish d : lowCaloricDishes) {
 			lowCaloricDishesName.add(d.getName());
 		}
